@@ -478,6 +478,7 @@
   // Drag-to-scroll for Services track (desktop mouse)
   const servicesTrack = document.querySelector("[data-services-track]");
   if (servicesTrack) {
+    const servicesRoot = servicesTrack.closest(".services");
     let isDown = false;
     let startX = 0;
     let startScrollLeft = 0;
@@ -488,6 +489,37 @@
 
     const isInteractiveTarget = (target) =>
       !!target.closest("a, button, input, textarea, select, label");
+
+    let affordTick = false;
+    const updateAffordance = () => {
+      if (!servicesRoot) return;
+      const overflow = servicesTrack.scrollWidth > servicesTrack.clientWidth + 8;
+      servicesRoot.classList.toggle("is-overflowing", overflow);
+
+      if (!overflow) {
+        servicesRoot.classList.remove("is-start", "is-end");
+        return;
+      }
+
+      const atStart = servicesTrack.scrollLeft <= 8;
+      const atEnd = servicesTrack.scrollLeft >= servicesTrack.scrollWidth - servicesTrack.clientWidth - 8;
+
+      servicesRoot.classList.toggle("is-start", atStart);
+      servicesRoot.classList.toggle("is-end", atEnd);
+    };
+
+    const onAffordanceScroll = () => {
+      if (affordTick) return;
+      affordTick = true;
+      window.requestAnimationFrame(() => {
+        affordTick = false;
+        updateAffordance();
+      });
+    };
+
+    servicesTrack.addEventListener("scroll", onAffordanceScroll, { passive: true });
+    window.addEventListener("resize", updateAffordance);
+    updateAffordance();
 
     servicesTrack.addEventListener(
       "click",
