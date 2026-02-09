@@ -1,0 +1,920 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#3b3b3b" />
+    <title>Мультимодальные перевозки из Китая</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <!-- Inline SVG sprite -->
+    <svg class="svg-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-logo-plane" viewBox="0 0 100 100">
+        <path
+          d="M16 44c10-16 28-20 42-10-12 6-22 14-30 26-6-4-10-9-12-16Z"
+          fill="currentColor"
+          opacity="0.38"
+        />
+        <path
+          d="M18 58c10-12 24-14 36-5-10 5-19 12-26 22-5-4-9-9-10-17Z"
+          fill="currentColor"
+          opacity="0.58"
+        />
+        <path
+          d="M55 10l9 29 29 11-29 11-9 29-9-29-29-11 29-11 9-29Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+        <path
+          d="M7 17L17 7M10 7h7v7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path
+          d="M6 6l12 12M18 6L6 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+
+    <div class="frame">
+      <div class="page" id="top">
+        <header class="site-header" data-site-header>
+          <nav class="nav" aria-label="Главное меню">
+            <div class="nav__pill">
+              <a class="nav__logo" href="#top" aria-label="LOGI CHINA — на главную">
+                <span class="nav__logo-mark" aria-hidden="true">
+                  <svg class="logo-icon" width="28" height="28" viewBox="0 0 100 100" aria-hidden="true">
+                    <use href="#i-logo-plane"></use>
+                  </svg>
+                </span>
+                <span class="nav__logo-text">
+                  LOGI <span class="nav__logo-text--muted">CHINA</span>
+                </span>
+              </a>
+
+              <ul class="nav__list" aria-label="Разделы">
+                <li class="nav__item"><a class="nav__link" href="#services">Услуги</a></li>
+                <li class="nav__item"><a class="nav__link" href="#examples">Примеры</a></li>
+                <li class="nav__item"><a class="nav__link" href="#calc">Расчёт стоимости</a></li>
+                <li class="nav__item"><a class="nav__link" href="#info">Информация</a></li>
+                <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a></li>
+                <li class="nav__item"><a class="nav__link" href="#company">Компания</a></li>
+              </ul>
+
+              <div class="nav__actions" aria-label="Действия меню">
+                <button class="btn btn--primary btn--nav" type="button" data-open-modal data-lead-source="Хедер">
+                  Оставить заявку
+                </button>
+
+                <button
+                  class="nav__burger"
+                  type="button"
+                  aria-label="Открыть меню"
+                  aria-expanded="false"
+                  aria-controls="mobile-menu"
+                  data-nav-toggle
+                >
+                  <span class="nav__burger-lines" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="nav-drawer" data-nav-drawer hidden>
+          <div class="nav-drawer__overlay" data-nav-close aria-hidden="true"></div>
+
+          <div
+            class="nav-drawer__panel"
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-menu-title"
+          >
+            <div class="nav-drawer__top">
+              <p class="nav-drawer__title" id="mobile-menu-title">Меню</p>
+              <button class="nav-drawer__close" type="button" data-nav-close aria-label="Закрыть меню">
+                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-close"></use>
+                </svg>
+              </button>
+            </div>
+
+            <ul class="nav-drawer__list" aria-label="Разделы">
+              <li class="nav__item"><a class="nav__link nav__link--drawer" href="#services">Услуги</a></li>
+              <li class="nav__item"><a class="nav__link nav__link--drawer" href="#examples">Примеры</a></li>
+              <li class="nav__item"><a class="nav__link nav__link--drawer" href="#calc">Расчёт стоимости</a></li>
+              <li class="nav__item"><a class="nav__link nav__link--drawer" href="#info">Информация</a></li>
+              <li class="nav__item"><a class="nav__link nav__link--drawer" href="#contacts">Контакты</a></li>
+              <li class="nav__item"><a class="nav__link nav__link--drawer" href="#company">Компания</a></li>
+            </ul>
+
+            <button
+              class="btn btn--primary btn--wide"
+              type="button"
+              data-open-modal
+              data-lead-source="Мобильное меню"
+            >
+              Оставить заявку
+            </button>
+          </div>
+        </div>
+
+        <main id="main">
+          <section class="hero" aria-labelledby="hero-title">
+            <img
+              class="hero__bg"
+              src="https://images.unsplash.com/photo-1768719407295-5e40e3d88564?auto=format&fit=crop&w=2800&q=60"
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+              fetchpriority="high"
+            />
+
+            <div class="hero__inner">
+              <div class="hero__copy">
+                <h1 id="hero-title" class="hero__title">
+                  Мультимодальные<br />
+                  перевозки из Китая:<br />
+                  воздух, море, земля.
+                </h1>
+
+                <p class="hero__lead">
+                  Воздух, море и земля — в одном решении: подберём оптимальный маршрут,
+                  сроки и формат доставки под ваш бизнес, с понятными статусами на каждом этапе.
+                </p>
+
+                <div class="hero__actions" role="group" aria-label="Действия">
+                  <a class="btn btn--primary" href="#calc">Заказать доставку</a>
+
+                  <a class="btn btn--glass" href="#about">
+                    Узнать больше
+                    <span class="btn__circle" aria-hidden="true">
+                      <svg class="icon" width="18" height="18" viewBox="0 0 24 24">
+                        <use href="#i-arrow-up-right"></use>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="hero__info glass glass--dark" role="group" aria-label="Статистика доставок">
+                  <div class="hero__info-media">
+                    <img
+                      src="https://images.unsplash.com/photo-1596284736032-2b34bd8327ca?auto=format&fit=crop&w=1200&q=60"
+                      alt="Контейнеровоз в море"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+
+                  <div class="hero__info-body">
+                    <div class="hero__info-top">
+                      <div class="avatars" aria-hidden="true">
+                        <span class="avatar avatar--1"></span>
+                        <span class="avatar avatar--2"></span>
+                        <span class="avatar avatar--3"></span>
+                        <span class="avatar avatar--4"></span>
+                      </div>
+                    </div>
+                    <div class="hero__info-count">11 тыс.</div>
+                    <p class="hero__info-text">
+                      успешных доставок.<br />
+                      Ваша — следующая.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="services" class="section section--services section--tint" aria-labelledby="services-title">
+            <div class="section__head">
+              <p class="kicker">Услуги</p>
+              <h2 id="services-title" class="section__title section__title--center">
+                Комплексные логистические<br />
+                решения из Китая под ключ
+              </h2>
+            </div>
+
+            <div class="services" aria-label="Карточки услуг">
+              <div class="services__track" data-services-track aria-label="Горизонтальная лента услуг">
+                <article class="service-card service-card--wide">
+                  <div
+                    class="service-card__bg"
+                    aria-hidden="true"
+                    style="--bg:url('https://images.unsplash.com/photo-1721032710992-b92216d8c4f4?auto=format&fit=crop&w=2400&q=60')"
+                  ></div>
+
+                  <a class="service-card__corner" href="#calc" aria-label="Перейти к расчёту доставки">
+                    <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-arrow-up-right"></use>
+                    </svg>
+                  </a>
+
+                  <div class="service-card__content">
+                    <h3 class="service-card__title">Рассчитать доставку</h3>
+
+                    <p class="service-card__desc">
+                      Получите точный расчёт: параметры груза, сроки и бюджет — подберём маршрут и вид транспорта
+                      (море, воздух, ж/д или авто).
+                    </p>
+
+                    <div class="service-card__chips" aria-label="Варианты доставки">
+                      <a class="btn btn--chip" href="#calc" aria-label="Срочная доставка — к расчёту">
+                        Срочная доставка
+                        <svg class="icon icon--sm" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                          <use href="#i-arrow-up-right"></use>
+                        </svg>
+                      </a>
+
+                      <a class="btn btn--chip" href="#calc" aria-label="Экономичная доставка — к расчёту">
+                        Экономичная доставка
+                        <svg class="icon icon--sm" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                          <use href="#i-arrow-up-right"></use>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="service-card service-card--tall">
+                  <div
+                    class="service-card__bg"
+                    aria-hidden="true"
+                    style="--bg:url('https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&w=1600&q=60')"
+                  ></div>
+
+                  <a class="service-card__corner" href="#info" aria-label="Подробнее про поиск товара">
+                    <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-arrow-up-right"></use>
+                    </svg>
+                  </a>
+
+                  <div class="service-card__content service-card__content--compact">
+                    <h3 class="service-card__title">Найти<br />товар</h3>
+                  </div>
+                </article>
+
+                <article class="service-card service-card--tall">
+                  <div
+                    class="service-card__bg"
+                    aria-hidden="true"
+                    style="--bg:url('https://images.unsplash.com/photo-1764835822981-1a3ccf47c369?auto=format&fit=crop&w=1600&q=60')"
+                  ></div>
+
+                  <a class="service-card__corner" href="#info" aria-label="Подробнее про контроль качества">
+                    <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-arrow-up-right"></use>
+                    </svg>
+                  </a>
+
+                  <div class="service-card__content service-card__content--compact">
+                    <h3 class="service-card__title">Контроль<br />качества</h3>
+                  </div>
+                </article>
+
+                <article class="service-card service-card--tall service-card--peek">
+                  <div
+                    class="service-card__bg"
+                    aria-hidden="true"
+                    style="--bg:url('https://images.unsplash.com/photo-1763729548552-abacc879f71c?auto=format&fit=crop&w=1600&q=60')"
+                  ></div>
+
+                  <a class="service-card__corner" href="#info" aria-label="Подробнее про оплату поставщику">
+                    <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-arrow-up-right"></use>
+                    </svg>
+                  </a>
+
+                  <div class="service-card__content service-card__content--compact">
+                    <h3 class="service-card__title">Оплата<br />поставщику</h3>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <section id="about" class="section section--about" aria-labelledby="about-title">
+            <div class="section__head">
+              <p class="kicker">О нас</p>
+              <h2 id="about-title" class="section__title section__title--center">
+                Наши преимущества
+              </h2>
+              <p class="section__sub">
+                Мы создаём логистику для вашего бизнеса: гарантируем скорость, сохранность и прозрачность каждой доставки.
+              </p>
+            </div>
+
+            <div class="advantages" aria-label="Преимущества">
+              <div class="advantages__kpis advantages__kpis--left">
+                <div class="kpi">
+                  <div class="kpi__value">&gt;11 000</div>
+                  <div class="kpi__label">Успешных доставок</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi__value">99,8%</div>
+                  <div class="kpi__label">Сохранности грузов</div>
+                </div>
+              </div>
+
+              <figure class="advantages__media">
+                <img
+                  src="https://images.unsplash.com/photo-1715268358642-fdab48114710?auto=format&fit=crop&w=2400&q=60"
+                  alt="Аэропорт, вид сверху"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+
+              <div class="advantages__kpis advantages__kpis--right">
+                <div class="kpi">
+                  <div class="kpi__value">24/7</div>
+                  <div class="kpi__label">Онлайн отслеживание груза</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi__value">500</div>
+                  <div class="kpi__label">Проверенных партнёров</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples" class="section section--plain section--tint" aria-labelledby="examples-title">
+            <div class="section__head">
+              <p class="kicker">Примеры</p>
+              <h2 id="examples-title" class="section__title section__title--center">
+                Реальные маршруты и кейсы
+              </h2>
+              <p class="section__sub">Несколько типовых поставок — сроки и формат под разные задачи бизнеса.</p>
+            </div>
+
+            <div class="examples" role="list" aria-label="Примеры доставок">
+              <article class="example" role="listitem">
+                <div class="example__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1721032710992-b92216d8c4f4?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="example__tag">Авиа</div>
+                <h3 class="example__title">Шэньчжэнь → Москва</h3>
+                <p class="example__meta">Электроника · 320 кг · 6–8 дней</p>
+              </article>
+
+              <article class="example" role="listitem">
+                <div class="example__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1596284736032-2b34bd8327ca?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="example__tag">Море + Ж/Д</div>
+                <h3 class="example__title">Нинбо → Екатеринбург</h3>
+                <p class="example__meta">Оборудование · 2×40’ · 22–28 дней</p>
+              </article>
+
+              <article class="example" role="listitem">
+                <div class="example__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="example__tag">Авто</div>
+                <h3 class="example__title">Гуанчжоу → Казань</h3>
+                <p class="example__meta">Текстиль · 4,5 т · 14–18 дней</p>
+              </article>
+
+              <article class="example" role="listitem">
+                <div class="example__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1715268358642-fdab48114710?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="example__tag">Ж/Д</div>
+                <h3 class="example__title">Чунцин → Новосибирск</h3>
+                <p class="example__meta">Комплектующие · 1×40’ · 16–22 дня</p>
+              </article>
+
+              <article class="example" role="listitem">
+                <div class="example__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1768719407295-5e40e3d88564?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="example__tag">Море</div>
+                <h3 class="example__title">Шанхай → Санкт-Петербург</h3>
+                <p class="example__meta">Товары FMCG · 40’ HQ · 30–38 дней</p>
+              </article>
+
+              <article class="example" role="listitem">
+                <div class="example__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1764835822981-1a3ccf47c369?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="example__tag">Мультимодальная</div>
+                <h3 class="example__title">Сиань → Самара</h3>
+                <p class="example__meta">Одежда · 2,1 т · 18–26 дней</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="calc" class="section section--plain section--tint" aria-labelledby="calc-title">
+            <div class="section__head">
+              <p class="kicker">Расчёт стоимости</p>
+              <h2 id="calc-title" class="section__title section__title--center">
+                Получите расчёт под ваш груз
+              </h2>
+              <p class="section__sub">Оставьте параметры — подготовим предложение и маршрут под ключ.</p>
+            </div>
+
+            <div class="calc">
+              <form class="calc__card" aria-label="Форма расчёта (демо)">
+                <div class="field">
+                  <label class="field__label" for="mode">Вид перевозки</label>
+                  <select class="field__control" id="mode" name="mode">
+                    <option>Авиа</option>
+                    <option>Море</option>
+                    <option>Ж/Д</option>
+                    <option>Авто</option>
+                    <option>Мультимодальная</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="weight">Вес (кг)</label>
+                  <input class="field__control" id="weight" name="weight" inputmode="decimal" placeholder="Напр. 320" />
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="volume">Объём (м³)</label>
+                  <input class="field__control" id="volume" name="volume" inputmode="decimal" placeholder="Напр. 2.8" />
+                </div>
+
+                <div class="field field--wide">
+                  <label class="field__label" for="route">Маршрут</label>
+                  <input class="field__control" id="route" name="route" placeholder="Напр. Шэньчжэнь → Москва" />
+                </div>
+
+                <button
+                  class="btn btn--primary btn--wide"
+                  type="button"
+                  data-open-modal
+                  data-lead-source="Расчёт стоимости"
+                >
+                  Получить расчёт
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <section id="info" class="section section--plain section--tint" aria-labelledby="info-title">
+            <div class="section__head">
+              <p class="kicker">Информация</p>
+              <h2 id="info-title" class="section__title section__title--center">
+                Прозрачный процесс доставки
+              </h2>
+              <p class="section__sub">От поиска поставщика до финальной доставки — всё под контролем и с отчётностью.</p>
+            </div>
+
+            <div class="info-grid" role="list" aria-label="Блоки информации">
+              <article class="info" role="listitem">
+                <div class="info__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="info__title">Документы</h3>
+                <p class="info__text">Инвойсы, упаковочные листы, сертификаты, таможенное оформление.</p>
+              </article>
+              <article class="info" role="listitem">
+                <div class="info__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1764835822981-1a3ccf47c369?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="info__title">Контроль</h3>
+                <p class="info__text">Фото/видео отчёт, проверка качества, маркировка и переупаковка.</p>
+              </article>
+              <article class="info" role="listitem">
+                <div class="info__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1715268358642-fdab48114710?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="info__title">Трекинг</h3>
+                <p class="info__text">Статусы в реальном времени и единое окно поддержки 24/7.</p>
+              </article>
+              <article class="info" role="listitem">
+                <div class="info__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="info__title">Консолидация</h3>
+                <p class="info__text">Собираем поставки от разных фабрик, оптимизируем объём и упаковку.</p>
+              </article>
+              <article class="info" role="listitem">
+                <div class="info__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1596284736032-2b34bd8327ca?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="info__title">Страхование</h3>
+                <p class="info__text">Подбираем покрытие под ценность и маршрут, фиксируем риски и условия.</p>
+              </article>
+              <article class="info" role="listitem">
+                <div class="info__media" aria-hidden="true">
+                  <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=60"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="info__title">Сопровождение</h3>
+                <p class="info__text">Персональный менеджер, SLA по ответам и прозрачная отчётность по этапам.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="contacts" class="section section--plain section--tint" aria-labelledby="contacts-title">
+            <div class="section__head">
+              <p class="kicker">Контакты</p>
+              <h2 id="contacts-title" class="section__title section__title--center">
+                Свяжитесь с нами
+              </h2>
+              <p class="section__sub">Ответим на вопросы и предложим оптимальный маршрут под вашу задачу.</p>
+            </div>
+
+            <div class="contacts">
+              <div class="contacts__card">
+                <dl class="dl">
+                  <div class="dl__row">
+                    <dt>Телефон</dt>
+                    <dd><a class="link" href="tel:+79990000000">+7 (999) 000-00-00</a></dd>
+                  </div>
+                  <div class="dl__row">
+                    <dt>Email</dt>
+                    <dd><a class="link" href="mailto:hello@logichina.example">hello@logichina.example</a></dd>
+                  </div>
+                  <div class="dl__row">
+                    <dt>Адрес</dt>
+                    <dd>Москва, ул. Пушкина, 7</dd>
+                  </div>
+                </dl>
+
+                <button class="btn btn--primary" type="button" data-open-modal data-lead-source="Контакты">
+                  Оставить заявку
+                </button>
+              </div>
+
+              <div class="contacts__map" aria-label="Карта: Москва, ул. Пушкина, 7">
+                <iframe
+                  class="contacts__iframe"
+                  title="Карта: Москва, ул. Пушкина, 7"
+                  loading="lazy"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=37.1730773%2C55.5885919%2C37.1930773%2C55.6085919&layer=mapnik&marker=55.5985919%2C37.1830773"
+                ></iframe>
+                <div class="contacts__map-chip" aria-hidden="true">
+                  <a
+                    class="btn btn--chip"
+                    href="https://www.openstreetmap.org/?mlat=55.5985919&mlon=37.1830773#map=16/55.5985919/37.1830773"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Открыть карту в новой вкладке"
+                  >
+                    Открыть карту
+                    <svg class="icon icon--sm" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                      <use href="#i-arrow-up-right"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="company" class="section section--plain section--tint" aria-labelledby="company-title">
+            <div class="section__head">
+              <p class="kicker">Компания</p>
+              <h2 id="company-title" class="section__title section__title--center">
+                Логистика, которая работает
+              </h2>
+              <p class="section__sub">Сеть агентов, проверенные маршруты и единые стандарты качества.</p>
+            </div>
+
+            <div class="company">
+              <div class="company__card">
+                <ul class="ticks" aria-label="Ключевые преимущества">
+                  <li>Комбинация транспортов под сроки и бюджет</li>
+                  <li>Проверка и консолидация грузов в Китае</li>
+                  <li>Страхование и контроль сохранности</li>
+                  <li>Персональный менеджер и поддержка 24/7</li>
+                </ul>
+
+                <div class="company__gallery" aria-label="Процессы">
+                  <figure class="thumb" aria-hidden="true">
+                    <img
+                      src="https://images.unsplash.com/photo-1596284736032-2b34bd8327ca?auto=format&fit=crop&w=1400&q=60"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure class="thumb" aria-hidden="true">
+                    <img
+                      src="https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&w=1400&q=60"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure class="thumb" aria-hidden="true">
+                    <img
+                      src="https://images.unsplash.com/photo-1715268358642-fdab48114710?auto=format&fit=crop&w=1400&q=60"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+
+                <button class="btn btn--glass-dark" type="button" data-open-modal data-lead-source="Компания">
+                  Обсудить задачу
+                  <span class="btn__circle btn__circle--light" aria-hidden="true">
+                    <svg class="icon" width="18" height="18" viewBox="0 0 24 24">
+                      <use href="#i-arrow-up-right"></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section id="faq" class="section section--plain section--tint" aria-labelledby="faq-title">
+            <div class="section__head">
+              <p class="kicker">FAQ</p>
+              <h2 id="faq-title" class="section__title section__title--center">Частые вопросы</h2>
+              <p class="section__sub">Короткие ответы на популярные вопросы о доставке из Китая.</p>
+            </div>
+
+            <div class="faq" aria-label="Список вопросов">
+              <details class="faq__item">
+                <summary class="faq__summary">Какие документы нужны для перевозки?</summary>
+                <div class="faq__content">
+                  <p>
+                    Обычно нужны инвойс, упаковочный лист, описание товара и условия поставки. При необходимости
+                    поможем собрать пакет документов под таможню и перевозчика.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq__item">
+                <summary class="faq__summary">Можно ли объединить грузы от разных поставщиков?</summary>
+                <div class="faq__content">
+                  <p>
+                    Да. Мы консолидируем партии на складе в Китае, оптимизируем упаковку и объём, после чего
+                    отправляем единым грузом — так дешевле и удобнее.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq__item">
+                <summary class="faq__summary">Как работает отслеживание?</summary>
+                <div class="faq__content">
+                  <p>
+                    Вы получаете статусы по ключевым точкам маршрута: приёмка, склад, отправка, транзит, таможня,
+                    прибытие и доставка. Поддержка — 24/7.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq__item">
+                <summary class="faq__summary">Сколько занимает расчёт стоимости?</summary>
+                <div class="faq__content">
+                  <p>
+                    Базовый расчёт — в течение дня после получения параметров груза. Если нужен сложный маршрут
+                    или спецусловия, согласование может занять 1–2 рабочих дня.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq__item">
+                <summary class="faq__summary">Вы страхуете груз?</summary>
+                <div class="faq__content">
+                  <p>
+                    По запросу оформляем страхование с покрытием под ценность товара и риски маршрута. Условия
+                    фиксируем в коммерческом предложении.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section class="section section--plain section--tint" aria-labelledby="cta-title">
+            <div class="cta" aria-label="Блок заявки">
+              <div class="cta__copy">
+                <h2 class="cta__title" id="cta-title">Готовы рассчитать доставку?</h2>
+                <p class="cta__text">
+                  Оставьте заявку — уточним параметры груза, предложим 2–3 варианта маршрута и сроки под ваш бюджет.
+                </p>
+              </div>
+
+              <button class="btn btn--primary" type="button" data-open-modal data-lead-source="CTA">
+                Оставить заявку
+              </button>
+            </div>
+          </section>
+
+          <footer class="footer" aria-label="Подвал">
+            <div class="footer__inner">
+              <div class="footer__brand">
+                <a class="footer__logo" href="#top" aria-label="LOGI CHINA — на главную">
+                  <span class="footer__logo-mark" aria-hidden="true">
+                    <svg class="logo-icon" width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
+                      <use href="#i-logo-plane"></use>
+                    </svg>
+                  </span>
+                  LOGI CHINA
+                </a>
+                <p class="footer__note">Мультимодальная логистика из Китая</p>
+              </div>
+
+              <div class="footer__meta" aria-label="Контакты и копирайт">
+                <a class="footer__contact" href="tel:+79990000000">+7 (999) 000-00-00</a>
+                <a class="footer__contact" href="mailto:hello@logichina.example">hello@logichina.example</a>
+                <p class="footer__copy">© <span id="year"></span></p>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta" data-sticky-cta hidden aria-label="Быстрый расчёт">
+      <div class="sticky-cta__inner glass" role="region" aria-label="Быстрое действие">
+        <div class="sticky-cta__copy">
+          <p class="sticky-cta__title">Получите расчёт</p>
+          <p class="sticky-cta__sub">Ответим в течение 15 минут</p>
+        </div>
+
+        <button class="btn btn--primary" type="button" data-open-modal data-lead-source="Sticky CTA">
+          Оставить заявку
+        </button>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" data-toast hidden role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast__body">
+        <span class="toast__text" data-toast-text>Заявка отправлена</span>
+        <button class="toast__close" type="button" data-toast-close aria-label="Закрыть уведомление">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" data-modal hidden>
+      <div class="modal__overlay" data-close-modal aria-hidden="true"></div>
+
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-desc"
+        data-modal-dialog
+      >
+        <button class="modal__close" type="button" data-close-modal aria-label="Закрыть окно">
+          <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-close"></use>
+          </svg>
+        </button>
+
+        <div class="modal__view" data-modal-view="form">
+          <h2 class="modal__title" id="modal-title">Оставить заявку</h2>
+          <p class="modal__desc" id="modal-desc">
+            Заполните форму — мы перезвоним и уточним детали доставки.
+          </p>
+
+          <form class="form" data-modal-form>
+            <div class="field">
+              <label class="field__label" for="name">Имя</label>
+              <input
+                class="field__control"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Напр. Александр"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="phone">Телефон</label>
+              <input
+                class="field__control"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                placeholder="+7 (___) ___-__-__"
+                required
+              />
+            </div>
+
+            <div class="field field--wide">
+              <label class="field__label" for="comment">Комментарий</label>
+              <textarea
+                class="field__control field__control--textarea"
+                id="comment"
+                name="comment"
+                rows="4"
+                placeholder="Коротко опишите задачу"
+              ></textarea>
+            </div>
+
+            <button class="btn btn--primary btn--wide" type="submit">
+              Отправить заявку
+            </button>
+
+            <p class="form__fine">
+              Нажимая кнопку, вы соглашаетесь на обработку данных (демо).
+            </p>
+          </form>
+        </div>
+
+        <div class="modal__view" data-modal-view="success" hidden>
+          <h2 class="modal__title">Заявка отправлена</h2>
+          <p class="modal__desc">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+          <button class="btn btn--primary btn--wide" type="button" data-close-modal data-modal-ok>
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
